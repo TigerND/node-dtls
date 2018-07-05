@@ -18,6 +18,7 @@ module.exports = {
     DtlsServer: DtlsServer,
     createServer: DtlsServer.createServer,
     connect: DtlsSocket.connect,
+    connectFromSocket: DtlsSocket.connectFromSocket,
     setLogLevel: log.setLogLevel.bind( log ),
     logLevel: logLevels
 };
