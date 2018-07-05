@@ -23,7 +23,7 @@ DtlsServer.createServer = function( options, callback ) {
 
     var dgram = require( 'dgram' );
 
-    var dgramSocket = dgram.createSocket( options );
+    var dgramSocket = options.socket || dgram.createSocket( options );
     var dtlsServer = new DtlsServer( dgramSocket, options );
 
     if( callback )
