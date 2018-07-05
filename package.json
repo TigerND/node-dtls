@@ -8,14 +8,14 @@
     "test": "test"
   },
   "dependencies": {
-    "asn1.js": "^1.0.3",
-    "logg": "^0.3.0",
-    "parse-asn1": "^5.1.1"
+    "parse-asn1": "^5.1.1",
+    "asn1.js": "^5.0.1",
+    "logg": "^0.3.4"
   },
   "devDependencies": {
     "chai": "^2.2.0",
     "minimist": "^1.1.1",
-    "mocha": "^2.2.4"
+    "mocha": "^5.2.0"
   },
   "scripts": {
     "test": "mocha"
