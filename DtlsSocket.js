@@ -64,9 +64,7 @@ var DtlsSocket = function( dgram, rinfo, keyContext, isServer ) {
 };
 util.inherits( DtlsSocket, EventEmitter );
 
-DtlsSocket.connect = function( port, address, type, callback ) {
-    var dgramSocket = dgram.createSocket( type );
-
+DtlsSocket.connectFromSocket = function( dgramSocket, port, address, type, callback ) {
     var socket = new DtlsSocket( dgramSocket, { address: address, port: port });
     socket.renegotiate();
 
@@ -76,6 +74,12 @@ DtlsSocket.connect = function( port, address, type, callback ) {
         socket.once( 'secureConnect', callback );
 
     return socket;
+};
+
+DtlsSocket.connect = function( port, address, type, callback ) {
+    var dgramSocket = dgram.createSocket( type );
+
+    return this.connectFromSocket(dgramSocket, port, address, type, callback);
 };
 
 DtlsSocket.prototype.renegotiate = function() {
